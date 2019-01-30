@@ -1,7 +1,7 @@
 /**
  * Riesenia cvicenia 1
  * @author PB
- * @version 2009
+ * @version 2019
  */
 public class Cvicenie1 {
 final static int nnnn = 12; 

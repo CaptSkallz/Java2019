@@ -1,7 +1,7 @@
 /**
  * nestrukturovany priklad
  * @author PB
- * @version  2009
+ * @version  2019
  */
 public class Gulicka1 {
 	/** 

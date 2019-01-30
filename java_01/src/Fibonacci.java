@@ -12,7 +12,7 @@
  * <br>
  * Pozn.:program pouziva triedu Input ako pomocku na cistanie cisla
  * @author PB
- * @version  2009
+ * @version  2019
  * @see Input
  */
 public class Fibonacci {

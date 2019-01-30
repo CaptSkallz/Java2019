@@ -1,7 +1,7 @@
 /**
  * priklad s dvomi funkciami (resp. procedurami s vystupnou hodnotou)
  * @author PB
- * @version  2009
+ * @version  2019
  */
 public class Gulicka2 {
 	/**
