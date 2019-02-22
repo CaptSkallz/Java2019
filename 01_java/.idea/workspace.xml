@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f5eb10ac-eede-46f1-be2e-ae5522a41c4e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../03_riesenia/bin/Piskvorka.class" beforeDir="false" afterPath="$PROJECT_DIR$/../03_riesenia/bin/Piskvorka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../03_riesenia/bin/TestPiskvorka.class" beforeDir="false" afterPath="$PROJECT_DIR$/../03_riesenia/bin/TestPiskvorka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08_java/Diners.java" beforeDir="false" afterPath="$PROJECT_DIR$/../08_java/Diners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08_java/FixedPhilosopher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../08_java/FixedPhilosopher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08_riesenie/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../08_riesenie/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../09_java/demos/Diners.java" beforeDir="false" afterPath="$PROJECT_DIR$/../09_java/demos/Diners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../09_riesenia/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../10_java/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../10_java/src/application/CanvasDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../10_java/src/application/CanvasDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../10_java/src/application/MouseDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../10_java/src/application/MouseDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../10_java/src/application/MouseKeyEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../10_java/src/application/MouseKeyEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../10_java/src/application/TextFieldDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../10_java/src/application/TextFieldDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../11_java/bin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../11_java/bin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../11_java/bin/Plumber.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../11_java/pisky.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/../11_java/pisky.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/HB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/HL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/HR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/HT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/OLR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/OTB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/bielyKlobuk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/cervena_dole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/cervena_hore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/cervena_vlavo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/cervena_vpravo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/ciernyKlobuk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/java.policy.applet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/kapusta.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/modra_dole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/modra_hore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/modra_vlavo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/modra_vpravo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_java/bin/zajacik.png" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Fibonacci.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2003" />
+    <option name="y" value="11" />
+    <option name="width" value="1750" />
+    <option name="height" value="993" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545990308480" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Fibonacci" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Fibonacci" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Fibonacci" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5eb10ac-eede-46f1-be2e-ae5522a41c4e" name="Default Changelist" comment="" />
+      <created>1545989939794</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1545989939794</updated>
+      <workItem from="1545989955644" duration="788000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="788000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Fibonacci.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
