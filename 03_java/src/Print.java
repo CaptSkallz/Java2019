@@ -1,0 +1,1 @@
+class Print{public static void main(String[]a){String s="class Print{public static void main(String[]a){String s=;char c=34;System.out.println(s.substring(0,56)+c+s+c+s.substring(56));}}";char c=34;System.out.println(s.substring(0,56)+c+s+c+s.substring(56));}} 
