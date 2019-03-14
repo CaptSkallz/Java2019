@@ -1,9 +1,9 @@
-import java.util.ArrayList;
+package H3;
 
 final class BinaryNode {
-    private final BinaryNode left;
-    private final String key; 
-    private final BinaryNode right;
+    private BinaryNode left;
+    private String key; 
+    private BinaryNode right;
     
     public BinaryNode(BinaryNode left, String key, BinaryNode right) {
 		this.left = left;
@@ -15,55 +15,65 @@ final class BinaryNode {
       left = right = null;
     }
     boolean find(String x) {
-        if(x == null) return false;
-
-        if(x.equals(key)){
+        if(key.equals(x))
             return true;
-        }
-        if(x.compareTo(key) < 0) {
-            if (left == null) return false;
-            return left.find(x);
-        }
-        else {
-            if(right ==  null) return false;
-            return right.find(x);
-        }
-    }
-    public BinaryNode insert (String x) {
-
-        if(x == null) return this;
-
-        if(x.equals(key)){
-            return this;
-        }
-        if(x.compareTo(key) < 0) {
-            if (left == null) {
-                return new BinaryNode(new BinaryNode(x),key,right);
+        else{
+            if(key.compareTo(x) > 0){//left
+                if (left == null){
+                    return false;
+                }
+                else {
+                    return left.find(x);
+                }
             }
-            return new BinaryNode(left.insert(x),key,right);
+            else{
+                if(right == null){
+                    return false;
+                }
+                else{
+                    return right.find(x);
+                }
+            }
         }
-        else {
-            if(right ==  null) return new BinaryNode(left,key,new BinaryNode(x));
-            return new BinaryNode(left, key,right.insert(x));
-        }
-    	// cvicenie 4
     }
+
     void delete(String key) {
       	// cvicenie 4
     }
     public String toString(){
-        return "("+((left == null)?"NULL":left)+
-                ", key: "+ key + " ," +
-                ((right == null)?"NULL":right) + ")";  // cvicenie 4
+      	return "(" + ((left == null)? "." : left.toString())
+                + ", " + key + ", "
+                +((right == null)? "." : right.toString()) + ")";  // cvicenie 4
+    }
+    public String maximalny(){
+        if(right==null)
+            return this.key;
+        else{
+            return right.maximalny();
+        }
     }
     public String[] toArray() {
       	String[] p = new String[100]; // 100 asi nie je dobra konstanta :-)
       	// cvicenie 4
      	return p;
     }
-    ArrayList<String> toList() {
-      	ArrayList<String> al = new ArrayList<String>();
-      	// cvicenie 4
-      	return al;
-      }
+    public BinaryNode insert(String x) {
+        if(key.equals(x)){
+            return this;
+        }
+        if(key.compareTo(x) > 0){  // key > x
+            if(left == null){
+                left = new BinaryNode(x);
+            } else {
+                left = left.insert(x);
+            }
+        } else {
+            if(right == null){
+                right = new BinaryNode(x);
+            } else {
+                right = right.insert(x);
+            }
+        }
+        return this;
+    }
 }

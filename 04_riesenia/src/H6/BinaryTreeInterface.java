@@ -1,3 +1,4 @@
+package H6;
 interface BinaryTreeInterface {
 
     public String toString();

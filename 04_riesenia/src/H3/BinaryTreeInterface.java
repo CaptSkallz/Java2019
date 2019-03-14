@@ -1,3 +1,5 @@
+package H3;
+
 interface BinaryTreeInterface {
 
     public String toString();
