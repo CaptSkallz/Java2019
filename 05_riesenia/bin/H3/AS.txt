@@ -1,0 +1,70 @@
+AUTH
+unity authentification (FB, GM) ?
+- prihlasovanie ziaka cez email+pass nie je asi optimalne
+- asi nieco existuje :)
+https://developers.facebook.com/docs/unity/examples/
+
+ak treba (sa rozhodnete pre) email-authentification, tak password by mohol byt symbolicky,
+generovany z obrazkov, resp. PIN. V opacnom pripade vam ziaci budu vypisovat ich 
+skutocny email a zadavat ich skutocny password do toho emailu...
+
+profil ziaka by mal byt personifikovany nejakou fotkou, avatarom.
+- opat je to na vyskum, ze ci po FB authentifikacii FB SDK vam neodvoli ziskat jeho 
+profilovku z FB.
+
+----
+TRIEDA
+koncept triedy
+ - urcite nechceme (asi) zlozity manazment tried, cez webapi, ako to mal Daniel,
+ - chcelo by to odlahceny koncept triedy, ako hashtag, do ktorej sa mozu ziaci prihlasit.
+ - mne sa pacil koncept virtualnej triedy (leaderboardu z AoC), kde kazdy ziak si moze
+   vytvorit jednu/viac virtulanych skupin, de-facto fan clubov.
+ - je to dynamicke a distribuovane riadenie
+ - ak na TIA budete robit projekt v .js, dajte mi vediet, ak to bude suvisiet s DP (ako u Daniela).
+
+----
+OFF-LINE
+apka by mala mat funckionalitu off-line. Toto bola vec, pre ktoru Danielova
+apka nebola pouzitelna, lebo aj ked sme testovali, on visel na FB a sledovat
+detaily. Ak hry v leveli budu multiplayer, pride mi daleko lepsie, ak v pripade
+off-line modu budu fungovat tak, ze jeden tah Janko, a dalsi tah Marienka, nieco 
+ako sach pre jedneho hraca, raz hra za biele, raz za cierne.
+Lepsie, ako by to neslo vobec.
+Ja som presvedceny, ze ak sa na to bude trochu mysliet od zaciatku, tak je to
+mozno nadpraca, ale appky nezaniknu obhajobou diplomky. Vo fazi, ked sme to zistili
+u Daniela, uz nebolo co moc robit.
+
+----
+SOLVER
+ci bude, alebo nebude solver, zavisi velmi od toho, co bude v jednotlivych
+leveloch. Ja si viem predstavit, ze teraz appka nebude generovat ulohy, lebo tazisko
+prace je teraz o spolupraci na riesenie. Teda, ze uloha bude mat vzdy nejake riesenie,
+len bude o tom, ci a ako ho najdu. Ja by som tam preto mozno ani solver nevidel, ak 
+nepoviete ine. Dovody su asi tieto:
+- solver ste raz uz prezentovali, takze ked urobite hodne tucnu odvolavku na bakalarku
+  a vysvetlite, co tam vsetko bolo, tak sovler v diplomke nebude povazovany ako vyznamne
+  delta prinosu.
+ 
+- tusim to bolo cca 1000 riadkov kodu nejakej kniznice, mozno 1.500. treba to prepisat
+  do C#, co ja si vasa parketa :), ale aj tak nejaky vecer-dva-tri to zaberie...
+ 
+- ten solver uz celkom vzdychal pri 6x6, takze predstava, ze tam date 10x10 je nerealna,
+  bez toho, aby sa zo solverom a algoritmom nieco urobilo.
+takze spocitane, solver to be or not to be, je u mna, ze nie...
+
+
+----  
+FIREBASE
+neviem, ci je jasne, alebo nie, ze to pojde cez toto, alebo nativne HLAPI.
+Pri FB treba zacat rozmyslat nad strukturou DB, co je vlastne path+json.
+Kazdy prilaseny do FB ma svoje UID, takze profil, staticke informacie o ziakovi
+pojdu zrejme cez path=~=uid. Okrem toho, triedy/leaderboardy. No a najzaujimavejsie
+su hry, ako vymysliet viacero rozhohranych hier, moze ziak hrat viacero hier naraz.
+Nieco v tomto bolo v tych dvoch appkach z VMAcka, ak bude cas, tak trochu ukazem.
+V tej FB databaze je asi nadolezitejsie a netrivialne, aby NIKDY nezostala vam
+nekonzistentom stave, ze bude musite niekto hrabnut do FB konzoly, nieco odmazat,
+aby deti mohli hrat. Je to silne netrivalna vec, podla mna :)
+
+  
+----
+.js
