@@ -1,0 +1,38 @@
+Projekty k predmetu
+
+Programovanie 3 (Algorithms in Java) 
+
+Pravidlá:
+projekt je nutná podmienka úèasti na skúške (t.j. bez uznaného projektu cvièiacim nemôete na skúšku),
+projekt je moné odovzdáva cez semester, poèas cvièení, po semestri po dohode s cvièiacim
+applet musí rámcovo zodpoveda zadaniu, a musí by funkènı,
+zadania konzultujte na cvièeniach,
+projekt musí by vaša vlastná tvorba,
+mnoina tém nie je uzavretá, vaše nápady sú vítane, konzultujte s cvièiacim,
+mnoina pravidiel nie je uzavretá, všetky ïalšie mou by vo váš neprospech :-)
+
+Témy:
+
+applet zobrazujúci digitálne hodinky, 7-segmentovı LED display v tvare HH:MM:SS, s budíkom, monost nastavenia èasu, 
+applet zobrazujúci binárne hodinky, 
+applet kalkulaèka na kurzové prevody, s monosou zadávania kurzov a funkciou prevodu, 
+applet pre hru Obesenec, 
+applet pre hru Logic, cifry 0..9 s opakovaním, 
+applet zobrazujúci priebeh rôznych funkcií vo zvolenom intervale, 
+applet simulujúci obchod s n-kasami, jedna fronta na èakanie, n-front, nastavitelné parametre, 
+applet simulujúci vıah, s programovaním a bez, 
+applet graficky zobrazujúci nejaku lineárnu, resp. stromovú dátovú štruktúru, so základnımi operáciami nad òou, 
+applet pre hru dáma, pekná grafika, 
+applet na hru sokoban, 
+applet na hru solitaire, 
+applet na simuláciu hanojskıch veí, 
+applet na hru reversi, 
+applet zobrazujúci model slneènej sústavy, pekná grafika, 
+ma¾ovátko so symetriami, 
+applet pre hru priestorové piškvorky, 
+applet pre hru tetris, 
+applet na riešenie kríoviek, 
+applet na riešenie sudoku, 
+applet na simuláciu gulièkového poèítadla abacus, 
+applet pre hru poker, 
+applet simulujúci slot machine. 

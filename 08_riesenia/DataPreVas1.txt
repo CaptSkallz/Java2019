@@ -1,0 +1,19 @@
+			 Portugal-Spain 
+			 Spain-France 
+			 France-Italy 
+			 France-Switzerland 
+			 France-Belgium 
+			 USA Mexico 
+			 France-Germany 
+			 France-Luxemburg 
+			 Belgium-Holland 
+			 Belgium-Luxemburg 
+			 Belgium-Germany 
+			 Holland-Germany 
+			 Germany-Austria 
+			 Germany-Switzerland 
+			 Germany-Luxemburg 
+			 Canada-USA 
+			 Italy-Austria 
+			 Italy-Switzerland 
+			 Switzerland-Austria
