@@ -1,0 +1,40 @@
+	Group Licenses	
+Copies	Price per item
+1 - 4	$ 29.95 USD
+5 - 10	$ 26.55 USD
+11 - 20	$ 23.95 USD
+21 - 40	$ 20.95 USD
+41 - unlimited	$ 18.55 USD
+	TreePad SAFE	Windows
+ 	Group Licenses	
+Copies	Price per item
+1 - 4	$ 34.95 USD
+5 - 10	$ 31.55 USD
+11 - 20	$ 27.95 USD
+21 - 40	$ 24.95 USD
+41 - unlimited	$ 21.95 USD
+	TreePad Business Edition
+ 	Group Licenses	
+Copies	Price per item
+1 - 4	$ 44.95 USD
+5 - 10	$ 39.55 USD
+11 - 20	$ 35.55 USD
+21 - 40	$ 31.55 USD
+41 - unlimited	$ 27.95 USD
+	TreePad X Enterprise
+ 	Group Licenses	
+Copies	Price per item
+1 - 4	$ 64.95 USD
+5 - 10	$ 58.95 USD
+11 - 20	$ 53.95 USD
+21 - 40	$ 48.95 USD
+41 - unlimited	$ 44.95 USD
+	TreePad X Enterprise
+ 	Group Licenses	
+Copies	Price per item
+1 - 4	$ 89.95 USD
+5 - 10	$ 83.95 USD
+11 - 15	$ 78.95 USD
+16 - 20	$ 73.95 USD
+21 - 40	$ 69.95 USD
+41 - unlimited	$ 59.95 USD
