@@ -106,8 +106,8 @@ class BojovnikFx extends Thread {
 		  double xx = 2*defender.x - killer.x;
 		  double yy = 2*defender.y - killer.y;
 		  // parameter lenivosti (0-1)
-		  //double laziness = 0.5;
-		  double laziness = 0.1;
+		  double laziness = 0.5;
+		  //double laziness = 0.1;
 		  //double laziness = 0.01;
 		  x = (xx-x)*laziness+x;
 		  y = (yy-y)*laziness+y;

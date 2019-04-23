@@ -56,8 +56,8 @@ class BallPane2 extends Pane {
 	private ArrayList<IdealBall2> balls = new ArrayList<IdealBall2>();
 	//final int SIZE = 2;
 	//final int SIZE = 100;
-	//final int SIZE = 1000;
-	final int SIZE = 10000;
+	final int SIZE = 1000;
+	//final int SIZE = 10000;
 	Color[] cols = { Color.RED, Color.BLUE, Color.GREEN, Color.CYAN,
 			Color.YELLOW };
 

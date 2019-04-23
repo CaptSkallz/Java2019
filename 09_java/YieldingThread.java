@@ -11,13 +11,15 @@ public class YieldingThread extends Thread {
   public void run() {
 	   while(true) {
 	      System.out.println(this);
-    	  for(long j=0; j<500000000L; j++) {	// kým toto zráta
+    	  for(long j=0; j<500_000_000L; j++) {	// kým toto zráta
 							// zapotí sa ...
 	         double gg = 0-Math.PI+j+j-j+Math.PI;
-         	 //yield();
-	         if (j % 100000000L == 0) {
-	         	 yield();
-	         }
+	         
+      //   	 yield();
+	         
+//	         if (j % 100_000_000L == 0) {
+//	         	 yield();
+//	         }
 	      }
 	      //yield();
 	      if(--countDown == 0) return;
