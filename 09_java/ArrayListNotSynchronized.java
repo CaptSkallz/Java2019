@@ -1,8 +1,7 @@
 import java.util.*;
 
 public class ArrayListNotSynchronized extends Thread {
-	//ArrayList<Integer> al = new ArrayList<Integer>();
-	List al = Collections.synchronizedList(new ArrayList());
+	ArrayList<Integer> al = new ArrayList<Integer>();
 	int counter = 0;
 	//not	synchronized 
 	public void add() {

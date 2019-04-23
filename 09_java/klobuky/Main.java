@@ -18,7 +18,7 @@ public class Main extends Application {
 	Playground pg;
 
 	public static void main(String[] args) {
-		launch(args);
+		  launch(args);
 	}
 
 	/*
