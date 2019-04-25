@@ -57,7 +57,6 @@ public class Main extends Application {
 		Simulation s = new Simulation();
 		s.start();
 	}
-
 	
 	class Playground extends Canvas {
 		Image bielyKlobuk;
