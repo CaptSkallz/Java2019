@@ -19,7 +19,7 @@ public class MouseDemo extends Application {
 		scene.setOnMouseMoved(event -> {
 			if (listOfPositions.size() >= 200) {
 				listOfPositions.removeElementAt(0);
-				listOfPositions.removeElementAt(1);
+				listOfPositions.removeElementAt(0);
 			}
 			listOfPositions.addElement(event.getX());
 			listOfPositions.addElement(event.getY());

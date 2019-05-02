@@ -2,7 +2,6 @@ package demos;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,21 +22,21 @@ class MyButton extends Button {
 		setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				System.out.println("stalcil si " + text);
+				System.out.println("stlačil si " + text);
 
 			}
 		});
 		setOnAction(event -> {
-			System.out.println("stalcil si " + text);
+			System.out.println("stlačil si " + text);
 		} );
 		setOnMouseClicked(event -> {
 			System.out.println("klikol si " + text + ", " + event.getX() + ", " + event.getY());
 		} );
 		setOnMouseEntered(event -> {
-			System.out.println("mys vosla " + text + ", " + event.getX() + ", " + event.getY());
+			System.out.println("myš vošla " + text + ", " + event.getX() + ", " + event.getY());
 		} );
 		setOnKeyPressed(event -> {
-			System.out.println("stacil si " + text + ", " + event.getCode());
+			System.out.println("stlačil si " + text + ", " + event.getCode());
 		} );
 	}
 }

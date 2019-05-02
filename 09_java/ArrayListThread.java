@@ -1,7 +1,7 @@
 public class ArrayListThread extends Thread {
 	boolean kind;
-	static ArrayListNotSynchronized al = new ArrayListNotSynchronized();
-	// static ArrayListSynchronized al = new ArrayListSynchronized();
+	//static ArrayListNotSynchronized al = new ArrayListNotSynchronized();
+	static ArrayListSynchronized al = new ArrayListSynchronized();
 	public ArrayListThread(boolean kind) {
 		this.kind = kind;
 	}
