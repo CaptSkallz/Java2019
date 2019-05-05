@@ -24,8 +24,8 @@ public class Diners extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		BorderPane bp = new BorderPane();
-		fixed = true; // FIXED
-		//fixed = false; // not FIXED
+		//fixed = true; // FIXED
+		fixed = false; // not FIXED
 		bp.setCenter(display = new PhilCanvas());
 		slider = new ScrollBar();
 		slider.setMin(0);
