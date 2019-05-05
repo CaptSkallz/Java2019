@@ -59,7 +59,8 @@ public class PiskvorkyGridButtonResizable extends Application {
 			imageX.fitHeightProperty().bind(heightProperty());
 			imageO.fitWidthProperty().bind(widthProperty()); 
 			imageO.fitHeightProperty().bind(heightProperty());
-			setMinSize(50, 50);
+			//setMinSize(50, 50);
+			setMinSize(5, 5);
 			setOnAction(event -> {
 				if (ps.playground[i][j] != 0)
 					return;
