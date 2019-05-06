@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 
 
 public class Enhancements extends Application {
-    private double anchorX, anchorY, anchorAngleX, anchorAngleY;
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -26,17 +25,17 @@ public class Enhancements extends Application {
 
         Group group = new Group();
         group.getChildren().add(box);
-        //group.getChildren().addAll(prepareLightSource());
+        group.getChildren().addAll(prepareLightSource());
 
         Camera camera = new PerspectiveCamera(true);
         camera.setFarClip(1000);
-        camera.translateZProperty().set(-200);
+        camera.setTranslateZ(-200);
 
         Scene scene = new Scene(group, 1200, 600, true);
         scene.setFill(Color.SILVER);
         scene.setCamera(camera);
 
-        initMouseControl(group, scene, primaryStage);
+        initMouseControl(group, scene);
 
         primaryStage.setTitle("Enhancements");
         primaryStage.setScene(scene);
@@ -77,7 +76,8 @@ public class Enhancements extends Application {
         return box;
     }
 
-    private void initMouseControl(Group group, Scene scene, Stage stage) {
+    private double anchorX, anchorY, anchorAngleX, anchorAngleY;
+    private void initMouseControl(Group group, Scene scene) {
         Rotate xRotate = new Rotate(0, Rotate.X_AXIS);
         Rotate yRotate = new Rotate(0, Rotate.Y_AXIS);
         group.getTransforms().addAll(xRotate, yRotate);
@@ -91,7 +91,7 @@ public class Enhancements extends Application {
 
         scene.setOnMouseDragged(event -> {
             xRotate.setAngle(anchorAngleX - (anchorY - event.getSceneY()));
-            yRotate.setAngle(anchorAngleY + anchorX - event.getSceneX());
+            yRotate.setAngle(anchorAngleY + (anchorX - event.getSceneX()));
         });
 
         scene.setOnScroll(event -> group.translateZProperty().set(group.getTranslateZ() + event.getDeltaY()));

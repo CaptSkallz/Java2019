@@ -1,25 +1,105 @@
 import javafx.application.Application;
 import javafx.scene.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
-import javafx.scene.shape.Sphere;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
-public class Labyrinth extends Application {
-	public static void main(String[] args) {
-		launch(args);
-	}
 
-    private Group group = new Group();
-    private Camera camera = new PerspectiveCamera(true);
-    private Scene scene = new Scene(group, 1280, 720, true);
-    private PhongMaterial boxMaterial = new PhongMaterial(Color.LIGHTGREEN);
-    private boolean mousePressed = false;
-    private double lastMouseX;
-    private float mouseSensitivity = 0.1f;
+class Player extends Thread {
+    private final float MOUSE_SENSITIVITY = 0.1f;
+    private enum Dir {FORWARD, BACKWARD, STOP}
+    private Dir direction = Dir.STOP;
+    private Labyrinth lab;
+
+    boolean mousePressed = false;
+    boolean alive = true;
+    double angle = 0;
+    double lastMouseX;
+    double lastMouseY;
+
+    Player(Labyrinth lab) {
+        this.lab = lab;
+    }
+
+    @Override
+    public void run() {
+        while (alive) {
+            try {
+                movement();
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    void setDirection(KeyEvent event) {
+        switch (event.getCode()) {
+            case W:
+                direction = Dir.FORWARD;
+                break;
+            case S:
+                direction = Dir.BACKWARD;
+                break;
+        }
+    }
+
+    void mouseDragged(MouseEvent event) {
+        if (mousePressed) {
+            Rotate rotate = (Rotate) lab.camera.getTransforms().get(0);
+            lab.camera.getTransforms().clear();
+            rotate.setAngle(rotate.getAngle() + (event.getSceneX() - lastMouseX) * MOUSE_SENSITIVITY);
+            angle = rotate.getAngle();
+            lab.camera.getTransforms().add(rotate);
+
+            /* Alternative without Rotate matrix
+            lab.camera.setRotationAxis(Rotate.Y_AXIS);
+            lab.camera.setRotate(lab.camera.getRotate() + (event.getSceneX() - lastMouseX) * MOUSE_SENSITIVITY);
+            angle = lab.camera.getRotate();
+            */
+        }
+        lastMouseX = event.getSceneX();
+        lastMouseY = event.getSceneY();
+    }
+
+    void stopMovement() {
+        direction = Dir.STOP;
+    }
+
+    private void movement() {
+        if (direction == Dir.STOP) return;
+        double dx = Math.sin(Math.toRadians(angle));
+        double dz = Math.cos(Math.toRadians(angle));
+        double oldZ = lab.camera.getTranslateZ();
+        double oldX = lab.camera.getTranslateX();
+        switch (direction) {
+            case FORWARD:
+                lab.camera.translateZProperty().set(lab.camera.getTranslateZ() + dz);
+                lab.camera.translateXProperty().set(lab.camera.getTranslateX() + dx);
+                break;
+            case BACKWARD:
+                lab.camera.translateZProperty().set(lab.camera.getTranslateZ() - dz);
+                lab.camera.translateXProperty().set(lab.camera.getTranslateX() - dx);
+                break;
+        }
+        if (lab.checkCameraCollision()) {
+            lab.camera.translateZProperty().set(oldZ);
+            lab.camera.translateXProperty().set(oldX);
+        }
+    }
+}
+
+public class Labyrinth extends Application {
+
+    Group group = new Group();
+    Camera camera = new PerspectiveCamera(true);
+    Scene scene = new Scene(group, 960, 540, true);
+    PhongMaterial boxMaterial = new PhongMaterial(Color.LIGHTGREEN);
+    Player player = new Player(this);
 
     private char[][] map = {
             {'#', '#', '#', '#', '#'},
@@ -31,17 +111,22 @@ public class Labyrinth extends Application {
             {'#', '#', '#', '#', '#'}
     };
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) {
         scene.setFill(Color.LIGHTBLUE);
         scene.setCamera(camera);
-        camera.setTranslateX(30);
-        camera.setTranslateZ(30);
+        camera.setTranslateX(50);
+        camera.setTranslateZ(50);
         camera.setFarClip(500);
 
         createFloor();
         loadMap();
         setEvents();
+        player.start();
 
         primaryStage.setTitle("Labyrinth");
         primaryStage.setScene(scene);
@@ -58,25 +143,24 @@ public class Labyrinth extends Application {
                     camera.translateYProperty().set(camera.getTranslateY() + 2);
                     break;
                 default:
-                    cameraMovement(event);
+                    player.setDirection(event);
                     break;
             }
         });
 
+        scene.setOnKeyReleased(event -> player.stopMovement());
+
+        camera.getTransforms().add(new Rotate(0, Rotate.Y_AXIS));
+
         scene.setOnMousePressed(event -> {
-            mousePressed = true;
-            lastMouseX = event.getSceneX();
+            player.mousePressed = true;
+            player.lastMouseX = event.getSceneX();
+            player.lastMouseY = event.getSceneY();
         });
 
-        scene.setOnMouseReleased(event -> mousePressed = false);
+        scene.setOnMouseReleased(event -> player.mousePressed = false);
 
-        scene.setOnMouseDragged(event -> {
-            if (mousePressed) {
-                camera.setRotationAxis(Rotate.Y_AXIS);
-                camera.setRotate(camera.getRotate() + (event.getSceneX() - lastMouseX) * mouseSensitivity);
-            }
-            lastMouseX = event.getSceneX();
-        });
+        scene.setOnMouseDragged(event -> player.mouseDragged(event));
     }
 
     private void loadMap() {
@@ -87,14 +171,14 @@ public class Labyrinth extends Application {
                 if (map[i][j] == '#') {
                     createBox(X, Z);
                 }
-                X += 31;
+                X += 51;
             }
-            Z += 31;
+            Z += 51;
         }
     }
 
     private void createBox(int X, int Z) {
-        Box box = new Box(30, 30,30);
+        Box box = new Box(50, 50,50);
         box.setTranslateX(X);
         box.setTranslateZ(Z);
         box.setMaterial(boxMaterial);
@@ -108,30 +192,7 @@ public class Labyrinth extends Application {
         group.getChildren().add(box);
     }
 
-    private void cameraMovement(KeyEvent keyEvent) {
-        double dx = Math.sin(Math.toRadians(camera.getRotate())) * 5;
-        double dz = Math.cos(Math.toRadians(camera.getRotate())) * 5;
-
-        double oldZ = camera.getTranslateZ();
-        double oldX = camera.getTranslateX();
-        switch (keyEvent.getCode()) {
-            case W:
-                camera.translateZProperty().set(camera.getTranslateZ() + dz);
-                camera.translateXProperty().set(camera.getTranslateX() + dx);
-                break;
-            case S:
-                camera.translateZProperty().set(camera.getTranslateZ() - dz);
-                camera.translateXProperty().set(camera.getTranslateX() - dx);
-                break;
-        }
-
-        if (checkCollisions()) {
-            camera.translateZProperty().set(oldZ);
-            camera.translateXProperty().set(oldX);
-        }
-    }
-
-    private boolean checkCollisions() {
+    boolean checkCameraCollision() {
         for (Node n: group.getChildren()) {
             if (n instanceof Box) {
                 Box b = (Box) n;
