@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -57,6 +58,7 @@ public class Pexeso extends Application {
 				this.col = col;
 				this.setWidth(40);
 				this.setHeight(40);
+				
 				this.setOnMousePressed(e -> {
 					state.get(row, col).revert();
 					if (first_row == null) { // prvy tah
@@ -152,7 +154,7 @@ public class Pexeso extends Application {
 		}));
 		tikadielko.setCycleCount(Timeline.INDEFINITE);
 		tikadielko.play();
-		
+
 		// Buttons
 		Button load = new Button("Load");
 		Button save = new Button("Save");
@@ -160,29 +162,50 @@ public class Pexeso extends Application {
 		Button show = new Button("Show");
 
 		load.setOnAction(e -> {
-			//System.out.println("load");
+			System.out.println("load button");
 			state = State.load("savedGame");
 			playground.paint();
 		});
 
 		save.setOnAction(e -> {
-			//System.out.println("save");
+			System.out.println("save button");
 			state.save("savedGame");
 		});
 
 		quit.setOnAction(e -> {
-			//System.out.println("quit");
+			System.out.println("quit button");
 			// System.exit(0);
 			Platform.exit();
 		});
 		show.setOnAction(e -> {
-			//System.out.println("show");
+			System.out.println("show button");
 			showhide = !showhide;
 			show.setText(showhide?"Show":"Hide");
 			state.showhide();
 			playground.paint();
 		});
 
+		root.setOnKeyPressed(event -> {
+			System.out.println("key pressed");
+			if (event.getCode() == KeyCode.Q) {
+				System.out.println("quit key");
+				Platform.exit();
+			} else if (event.getCode() == KeyCode.L) {
+				System.out.println("load key");
+				state = State.load("savedGame");
+				playground.paint();
+			} else if (event.getCode() == KeyCode.S) {
+				System.out.println("save key");
+				state.save("savedGame");
+			} else if (event.getCode() == KeyCode.H) {
+				System.out.println("hide/show key");
+				showhide = !showhide;
+				show.setText(showhide?"Show":"Hide");
+				state.showhide();
+				playground.paint();
+			}
+		});
+		
 		// top panel
 		HBox topPanel = new HBox(lbPlayer, lbTime, lbScore);
 		topPanel.setAlignment(Pos.CENTER);
@@ -195,6 +218,9 @@ public class Pexeso extends Application {
 		root.setBottom(bottomPanel);
 		// playground
 		root.setCenter(playground = new Playground());
+		
+		
+		
 		
 		primaryStage.setTitle("Pexeso");
 		primaryStage.setScene(new Scene(root));

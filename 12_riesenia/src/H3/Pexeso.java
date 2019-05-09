@@ -14,6 +14,7 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -92,6 +93,10 @@ public class Pexeso extends Application {
 		show.setOnAction(e -> {
 			System.out.println("show");
 			// dorob logiku
+		});
+
+		root.setOnKeyPressed(event -> {
+			System.out.println("key pressed");
 		});
 
 		// top panel
