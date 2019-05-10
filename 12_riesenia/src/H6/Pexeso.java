@@ -9,17 +9,25 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Random;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Pexeso extends Application {
 	static final int SIZE = 8;				// parametre hry
@@ -28,9 +36,14 @@ public class Pexeso extends Application {
 	State state = new State();
 	Playground playground;
 	BorderPane root;
+	Label scoreLB = new Label("Score:");
+	Label timeLB = new Label("Čas:");
+	Label playerLB = new Label("Player:");
 	
 	// vnorena trieda
 	public class Playground extends GridPane {
+		State.CartObject first = null;
+		State.CartObject second = null;
 		
 		// zvolili sme riesenie cez Grid Pane
 		public class Cart extends Pane { // vnorena trieda
@@ -40,8 +53,30 @@ public class Pexeso extends Application {
 				this.col = col;
 				this.setWidth(40);
 				this.setHeight(40);
-				this.setOnMousePressed(e -> {
-					// doprogramuj logiku
+				this.setOnMousePressed(e -> {  // klikol si na karticku
+					if (first == null) { // klikol si na prvu
+						first = state.get(row, col);
+						first.revert();
+					} else {
+						second = state.get(row, col);
+						second.revert();
+						if (first.id == second.id) {
+							
+						} else {
+							Timeline tikadielko = new Timeline(new KeyFrame(new Duration(2000), ee -> {
+								first.revert();
+								System.out.println("first revert");
+								second.revert();
+								System.out.println("second revert");
+								first = null;
+								second = null;
+								playground.paint();
+							}));
+							tikadielko.setCycleCount(1);
+							tikadielko.play();
+						}
+					}
+					paint();
 				});
 			}
 
@@ -50,6 +85,22 @@ public class Pexeso extends Application {
 				double w = getWidth();
 				double h = getHeight();
 				getChildren().clear();
+				State.CartObject co = state.get(row, col);
+				if (co.visible) {
+					ImageView obrazok = co.pikaImage;
+					if (obrazok == null) {
+						obrazok = new ImageView(new Image("images/" + co.id + ".gif"));
+					}
+					obrazok.setFitWidth(w);
+					obrazok.setFitHeight(h);
+					getChildren().add(obrazok); 
+				} else {  // zakryta 
+					Rectangle r = new Rectangle( 0, 0, w-1, h-1);
+					r.setFill(Color.GRAY);
+					r.setStroke(Color.BLACK);
+					getChildren().add(r);
+				}
+						
 				// doprogramuj kreslenie karticky alebo sedeho stvorceka
 			}
 		}
@@ -57,12 +108,24 @@ public class Pexeso extends Application {
 		public Playground() {
 			setWidth(400);
 			setHeight(400);
+			for(int i = 0; i < SIZE; i++) {
+				for(int j = 0; j < SIZE; j++) {
+					Cart c = new Cart(i, j);
+					add(c, j, i);
+					c.paint();
+				}
+			}
 			// vygeneruj SIZE x SIZE Cart-ticiek a pridaj do Grid Pane
 		}
 
 		public void paint() {
 			// prekresli stavove informacie, hrac na tahu, score, ...
 			
+			for (Node n : getChildren()) {
+				if (n instanceof Cart) {
+					((Cart)n).paint();
+				}
+			}
 			// prekresli vsetky children v Pane...
 		}
 	}
@@ -92,6 +155,8 @@ public class Pexeso extends Application {
 		});
 		show.setOnAction(e -> {
 			System.out.println("show");
+			state.revert();
+			playground.paint();
 			// dorob logiku
 		});
 
@@ -100,11 +165,19 @@ public class Pexeso extends Application {
 		});
 
 		// top panel
-		HBox topPanel = new HBox();
+		HBox topPanel = new HBox(scoreLB, timeLB, playerLB);
+		topPanel.setAlignment(Pos.CENTER);
+		topPanel.setSpacing(40);
+		root.setTop(topPanel);
 		// vyrob top panel, pridaj tam labels a pridaj ho do root
+		
 
 		// bottom panel
 		HBox bottomPanel = new HBox(load, save, show, quit);
+		bottomPanel.setAlignment(Pos.CENTER);
+		bottomPanel.setSpacing(40);
+		root.setBottom(bottomPanel);
+		
 		// vyrob bottom panel, pridaj tam buttons, a pridaj ho do root
 		// playground
 		root.setCenter(playground = new Playground());
@@ -133,10 +206,10 @@ class State implements Serializable {
 
 		public CartObject(int id) {
 			this.id = id;
-			// nacitaj obrazok do pikaImage
+			pikaImage = new ImageView(new Image("images/" + id+".gif"));
 		}
 		public void revert() {
-			// otoc karticku
+			visible = !visible;
 		}
 	}
 	public State() {
@@ -153,6 +226,12 @@ class State implements Serializable {
 			int tmp = all[i];
 			all[i] = all[j];
 			all[j] = tmp;
+		}
+		int index = 0;
+		for (int i = 0; i < Pexeso.SIZE; i++) {
+			for (int j = 0; j < Pexeso.SIZE; j++) {
+				plocha[i][j] = new CartObject(all[index++]);
+			}			
 		}
 		// vygeneruj SIZE x SIZE CartObjectov do pola plocha[i][j] podla indexov all[i][j]
 	}
@@ -189,7 +268,11 @@ class State implements Serializable {
 			System.out.println("stalo sa nieco zle !!!");
 		return state;
 	}
-	public void showhide() {
-		// otoc vsetky karticky
+	public void revert() {
+		for (int i = 0; i < Pexeso.SIZE; i++) {
+			for (int j = 0; j < Pexeso.SIZE; j++) {
+				plocha[i][j].revert();
+			}
+		}
 	}
 }
