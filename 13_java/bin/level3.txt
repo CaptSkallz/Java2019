@@ -1,0 +1,14 @@
+12 15
+ppppppppppppppp
+ppssssspppppppp
+ppsuuuspppppppp
+ppsuu<ssssssppp
+ppssuuuuuuusppp
+pppssussssusspp
+pppsusuusuuuspp
+pppsusuuuuuuspp
+pppsuuuuuuu-spp
+ppps>uuusuusspp
+pppsssssssssppp
+ppppppppppppppp
+60
